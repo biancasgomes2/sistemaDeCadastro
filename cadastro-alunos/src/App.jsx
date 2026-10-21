@@ -21,6 +21,11 @@ function App() {
     setAlunos([...alunos, alunoComId])
   }
 
+  function excluirAluno(id) {
+    if (!window.confirm('Tem certeza que deseja excluir este aluno? ')) return;
+    setAlunos(alunos.filter((aluno) => aluno.id !== id))
+  }
+
 
   return(
     <div className="container py-4">
@@ -37,7 +42,7 @@ function App() {
       />
 
       {alunosFiltrados.map((aluno) => (
-        <CartaoAluno  key={aluno.id} aluno={aluno} />
+        <CartaoAluno  key={aluno.id} aluno={aluno} aoExcluir={excluirAluno}/>
       ))}
     </div>
   )
