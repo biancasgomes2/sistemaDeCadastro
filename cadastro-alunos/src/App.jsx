@@ -1,11 +1,12 @@
-function App() {
-  const nomeEscola = 'Escola Nexus'
+import CartaoAluno from "./components/CartaoAluno";
 
+function App() {
   return(
     <div className="container py-4">
       <h1>Cadastro de Alunos</h1>
-      <p>Bem-vinda(o) ao sistema da {nomeEscola}</p>
-      {/* <p>2 + 3 = {2 + 3}</p> */}
+      <CartaoAluno nome="Ana Souza" curso="Informática" />
+      <CartaoAluno nome="Bruno Lima" curso="Design" />
+      <CartaoAluno nome="Bianca Gomes" curso="Medicina" />
     </div>
   )
 }

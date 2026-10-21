@@ -1,9 +1,9 @@
-function CartaoAluno(props) {
+function CartaoAluno({nome, curso}) {
     return(
-        <div className="card mb-2">
+        <div className="card mb-4">
             <div className="card-body">
-                <h5 className="card-title">{props.name}</h5>
-                <p className="card-text mb-0">{props.curso}</p>
+                <h5 className="card-title">{nome}</h5>
+                <p className="card-text mb-0">{curso}</p>
             </div>
         </div>
     )
