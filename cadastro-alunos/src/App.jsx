@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CartaoAluno from "./components/CartaoAluno.jsx";
 
 const alunos = [
@@ -8,13 +9,29 @@ const alunos = [
 ]
 
 function App() {
+  const [busca, setBusca] = useState('')
+
+  const alunosFiltrados = alunos.filter((aluno) =>
+    aluno.nome.toLowerCase().includes(busca.toLowerCase()) || 
+    aluno.curso.toLowerCase().includes(busca.toLowerCase())
+  );
+
+
   return(
     <div className="container py-4">
       <h1>Cadastro de Alunos</h1>
-      <p>Total: {alunos.length} alunos</p>
+      
+      <input 
+        className="form-control mb-3"
+        placeholder="Buscar por nome..."
+        value={busca}
+        onChange={(evento) => setBusca(evento.target.value)}
+      />
 
-      {alunos.map((aluno) => (
-        <CartaoAluno key={aluno.id} nome={aluno.nome} curso={aluno.curso} />
+      <p>Mostrando {alunosFiltrados.length} de {alunos.length} alunos</p>
+
+      {alunosFiltrados.map((aluno) => (
+        <CartaoAluno  key={aluno.id} nome={aluno.nome} curso={aluno.curso}/>
       ))}
     </div>
   )
