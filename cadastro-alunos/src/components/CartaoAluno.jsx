@@ -1,9 +1,13 @@
-function CartaoAluno({nome, curso}) {
+function CartaoAluno({ aluno }) {
     return(
-        <div className="card mb-4">
+        <div className="card mb-2">
             <div className="card-body">
-                <h5 className="card-title">{nome}</h5>
-                <p className="card-text mb-0">{curso}</p>
+                <h5 className="card-title mb-1">{aluno.nome}</h5>
+                <p className="text-muted mb-2">{aluno.email}</p>
+                <span className="badge text-bg-secondary me-2">{aluno.curso}</span>
+                <span className={aluno.situacao === 'ativo' ? 'badge text-bg-success' : 'badge text-bg-danger'}>
+                    {aluno.situacao === 'ativo' ? 'Ativo' : 'Inativo'}
+                </span>
             </div>
         </div>
     )
