@@ -5,14 +5,20 @@ function FormularioAluno({ aoSalvar }) {
     const [email, setEmail] = useState('')
     const [curso, setCurso] = useState('')
     const [situacao, setSituacao] = useState('')
+    const [salvando, setSalvando] = useState(false)
 
-    function enviar(evento) {
+    async function enviar(evento) {
         evento.preventDefault()
-        aoSalvar({ nome, email, curso, situacao })
-        setNome('')
-        setEmail('')
-        setCurso('')
-        setSituacao('ativo')
+        setSalvando(true)
+        const deuCerto = await aoSalvar({ nome, email, curso, situacao })
+        setSalvando(false)
+
+        if(deuCerto) {
+            setNome('')
+            setEmail('')
+            setCurso('')
+            setSituacao('ativo')    
+        }   
     }
 
     return(
@@ -64,7 +70,9 @@ function FormularioAluno({ aoSalvar }) {
                 </select>
             </div>
 
-            <button type="submite" className="btn btn-primary">Salvar</button>
+            <button type="submite" className="btn btn-primary" disabled={salvando}>
+                {salvando ? 'Salvando...' : 'Salvar'}
+            </button>
         </form>
     )
 }
