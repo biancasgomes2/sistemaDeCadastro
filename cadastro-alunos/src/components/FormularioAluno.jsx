@@ -1,28 +1,22 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
-function FormularioAluno({ aoSalvar }) {
-    const [nome, setNome] = useState('')
-    const [email, setEmail] = useState('')
-    const [curso, setCurso] = useState('')
-    const [situacao, setSituacao] = useState('')
+function FormularioAluno({ alunoInicial, aoSalvar }) {
+    const [nome, setNome] = useState(alunoInicial.nome)
+    const [email, setEmail] = useState(alunoInicial.email)
+    const [curso, setCurso] = useState(alunoInicial.curso)
+    const [situacao, setSituacao] = useState(alunoInicial.situacao)
     const [salvando, setSalvando] = useState(false)
 
     async function enviar(evento) {
         evento.preventDefault()
         setSalvando(true)
-        const deuCerto = await aoSalvar({ nome, email, curso, situacao })
+        await aoSalvar({ nome, email, curso, situacao })
         setSalvando(false)
-
-        if(deuCerto) {
-            setNome('')
-            setEmail('')
-            setCurso('')
-            setSituacao('ativo')    
-        }   
     }
 
     return(
-        <form onSubmit={enviar} className="card card-body mb-4">
+        <form onSubmit={enviar} className="card card-body">
             <div className="mb-3">
                 <label htmlFor="nome" className="form-label">Nome</label>
                 <input
@@ -70,9 +64,12 @@ function FormularioAluno({ aoSalvar }) {
                 </select>
             </div>
 
-            <button type="submite" className="btn btn-primary" disabled={salvando}>
-                {salvando ? 'Salvando...' : 'Salvar'}
-            </button>
+            <div className="d-flex gap-2">
+                <button type="submite" className="btn btn-primary" disabled={salvando}>
+                    {salvando ? 'Salvando...' : 'Salvar'}
+                </button>
+                <Link to="/" className="btn btn-outline-secundary">Cancelar</Link>
+            </div>
         </form>
     )
 }
