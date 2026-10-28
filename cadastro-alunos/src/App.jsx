@@ -47,9 +47,18 @@ function App() {
     }
   }
 
-  function excluirAluno(id) {
+  async function excluirAluno(id) {
     if (!window.confirm('Tem certeza que deseja excluir este aluno? ')) return;
-    setAlunos(alunos?.filter((aluno) => aluno.id !== id))
+    setErro('')
+    setMensagem('')
+    try{
+      await api.delete(`/alunos/${id}`)
+      setAlunos(alunos?.filter((aluno) => aluno.id !== id))  
+      setMensagem('Aluno excluído.')
+    } catch (falha) {
+      console.log(falha)
+      setErro(mensagemDeErro(falha))
+    }
   }
 
 
