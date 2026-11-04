@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 function CartaoAluno({ aluno, aoExcluir }) {
     return(
         <div className="card mb-2">
@@ -11,9 +13,14 @@ function CartaoAluno({ aluno, aoExcluir }) {
                     </span>    
                 </div>
 
-                <button className="btn btn-outline-danger btn-sm" onClick={() => aoExcluir(aluno.id) }>
-                    Excluir
-                </button>
+                <div className='d-flex gap-2'>
+                    <Link to={`/editar/${aluno.id}`} className='btn btn-outline-primary btn-sm'>
+                        Editar
+                    </Link>
+                    <button className='btn btn-outline-danger btn-sm' onClick={() => aoExcluir(aluno.id)}>
+                        Excluir
+                    </button>
+                </div>
             </div>
         </div>
     )

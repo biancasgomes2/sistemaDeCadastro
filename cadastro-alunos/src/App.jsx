@@ -15,8 +15,9 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/' element={<PaginaLista/>} />
-          <Route path='/novo' element={<PaginaFormulario />} />
-          <Route path='*' element={<p>Página não encontrada. </p>} />
+          <Route path='/novo' element={<PaginaFormulario key="novo"/>} />
+          <Route path='/editar/:id' element={<PaginaFormulario key="editar" />} />
+          <Route path='*' element={<p>Página não encontrada.</p>} />
         </Routes>
       </div>
     </>
