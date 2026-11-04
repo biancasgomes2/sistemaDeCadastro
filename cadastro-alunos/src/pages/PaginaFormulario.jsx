@@ -9,7 +9,6 @@ function PaginaFormulario() {
     const { id } = useParams()
     const navigate = useNavigate()
     const editando = Boolean(id)
-    console.log("qualquercoisa", id)
     const [aluno, setAluno] = useState(editando ? null : alunoVazio)
     const [erro, setErro] = useState('')
 
@@ -20,6 +19,7 @@ function PaginaFormulario() {
             try{
                 const resposta = await api.get(`/alunos/${id}`)
                 setAluno(resposta.data)
+                console.log("resposta", resposta.data)
             } catch (falha) {
                 console.log(falha)
                 setErro(mensagemDeErro(falha))
@@ -53,7 +53,7 @@ function PaginaFormulario() {
 
             {aluno === null && !erro && <p>Carregando aluno...</p>}
 
-            {aluno !== null && <FormularioAluno alunoInicial={alunoVazio} aoSalvar={salvar} />}
+            {aluno !== null && <FormularioAluno alunoInicial={aluno} aoSalvar={salvar} />}
         </>
     )
 }
