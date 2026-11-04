@@ -27,6 +27,8 @@ function PaginaLista() {
         buscarAlunos()
     }, [])
 
+    
+
     const alunosFiltrados = alunos.filter((aluno) =>
     aluno.nome.toLowerCase().includes(busca.toLowerCase()) || 
     aluno.curso.toLowerCase().includes(busca.toLowerCase())
