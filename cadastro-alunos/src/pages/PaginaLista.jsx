@@ -57,6 +57,7 @@ function PaginaLista() {
         <h1 className="h3" style={{ color: '#a35c9a' }}>Alunos ({alunos.length})</h1>
         <input
             className="form-control mb-3"
+            style={{ backgroundColor: '#c2b7c2', color: '#fff', borderColor: 'rgb(165, 8, 152)' }}
             placeholder="Buscar por nome..."
             value={busca}
             onChange={(evento) => setBusca(evento.target.value)}
