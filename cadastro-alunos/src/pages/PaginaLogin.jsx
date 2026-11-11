@@ -32,7 +32,7 @@ function PaginaLogin() {
     return (
         <div className="row justify-content-center">
             <div className="col-md-5">
-                <form onSubmit={enviar} className="card card-body">
+                <form onSubmit={enviar} className="card card-body" style={{ backgroundColor: '#2b2a2a', color: '#fff', borderColor: 'rgb(165, 8, 152)', marginTop: '100px' }}>
                     <h1 className="h3 mb-4">Entrar</h1>
 
                     {erro && <div className="alert alert-danger">{erro}</div>}
@@ -61,7 +61,7 @@ function PaginaLogin() {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-primary w-100" disabled={enviando}>
+                    <button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#750062', borderColor: '#750062' }} disabled={enviando}>
                         {enviando ? 'Entrando...' : 'Entrar'}
                     </button>
                 </form>

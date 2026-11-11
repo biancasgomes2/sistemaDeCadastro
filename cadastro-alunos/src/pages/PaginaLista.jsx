@@ -54,7 +54,7 @@ function PaginaLista() {
         {mensagem && <div className="alert alert-success">{mensagem}</div>}
         {erro && <div className="alert alert-danger">{erro}</div>}
 
-        <h1 className="h3">Alunos ({alunos.length})</h1>
+        <h1 className="h3" style={{ color: '#a35c9a' }}>Alunos ({alunos.length})</h1>
         <input
             className="form-control mb-3"
             placeholder="Buscar por nome..."

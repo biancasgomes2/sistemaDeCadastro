@@ -47,7 +47,7 @@ function PaginaFormulario() {
 
     return (
         <>
-            <h1 className="h3 mb-4">{editando ? 'Editar aluno' : 'Novo aluno'}</h1>
+            <h1 className="h3 mb-4" style={{ color: '#a35c9a' }}>{editando ? 'Editar aluno' : 'Novo aluno'}</h1>
 
             {erro && <div className="alert alert-danger">{erro}</div>}
 

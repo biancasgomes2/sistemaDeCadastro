@@ -16,7 +16,7 @@ function FormularioAluno({ alunoInicial, aoSalvar }) {
     }
 
     return(
-        <form onSubmit={enviar} className="card card-body">
+        <form onSubmit={enviar} className="card card-body" style={{ backgroundColor: '#313131', color: '#fff', borderColor: 'rgb(165, 8, 152)' }}>
             <div className="mb-3">
                 <label htmlFor="nome" className="form-label">Nome</label>
                 <input
@@ -65,10 +65,12 @@ function FormularioAluno({ alunoInicial, aoSalvar }) {
             </div>
 
             <div className="d-flex gap-2">
-                <button type="submite" className="btn btn-primary" disabled={salvando}>
+                <button type="submite" className="btn btn-primary" disabled={salvando} style={{ backgroundColor: '#750062', borderColor: '#750062' }}>
                     {salvando ? 'Salvando...' : 'Salvar'}
                 </button>
-                <Link to="/" className="btn btn-outline-secundary">Cancelar</Link>
+                <Link to="/" className="btn btn-outline-secundary" style={{ borderColor: '#6b035a', color: '#4e0543', backgroundColor: '#ad99ad' }}>
+                    Cancelar
+                </Link>
             </div>
         </form>
     )
