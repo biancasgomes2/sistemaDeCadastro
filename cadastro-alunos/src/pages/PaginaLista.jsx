@@ -27,11 +27,12 @@ function PaginaLista() {
         buscarAlunos()
     }, [])
 
-    
+
 
     const alunosFiltrados = alunos.filter((aluno) =>
     aluno.nome.toLowerCase().includes(busca.toLowerCase()) || 
-    aluno.curso.toLowerCase().includes(busca.toLowerCase())
+    aluno.curso.toLowerCase().includes(busca.toLowerCase()) ||
+    aluno.situacao.toLowerCase().includes(busca.toLowerCase())
   );
 
   async function excluirAluno(id) {
